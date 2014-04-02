@@ -492,7 +492,7 @@ The CustomCaches are consistent with new end modified entities by transactions.
 
     Forces the specified entities to reload from the database.
 
-- **val retryLimit: Int*
+- **val retryLimit: Int**
 
     Indicates the limit number of tentatives to retry a transaction. Default: 3000.
 
