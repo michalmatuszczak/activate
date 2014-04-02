@@ -3,7 +3,7 @@ Activate is a Software Transactional Memory with efficient memory usage and plug
 
 
 ## SOFTWARE TRANSACTIONAL MEMORY ##
-The Activate core is a STM implementation in Scala called RadonSTM. From the point of view of Radon, Activate is a plugin that provides transaction durability. STM is a in-memory concurrency control mechanism. It uses optimistic locking to achieve transaction isolation, dealing with concurrent access and modification.
+The Activate core is a STM implementation in Scala called [RadonSTM](https://github.com/fwbrasil/radon-stm/). From the point of view of Radon, Activate is a plugin that provides transaction durability. STM is a in-memory concurrency control mechanism. It uses optimistic locking to achieve transaction isolation, dealing with concurrent access and modification.
 
 The usual approach to deal with concurrency is to use pessimistic locking, avoiding concurrent access. The resource is locked in a certain point and other transactions can not access it, awaiting for the end of the locking transaction.
 
@@ -50,7 +50,7 @@ object myMain extends App{
     }
 } 
 ```
-MyContext will always be loaded first than the Person class, in this case at the persistence context method “transactional” call. At context load, it is used a class called EntityEnhancer that scan the classpath using the Reflections framework looking for all entity classes. After the scan, it enhance each entity class. After enhance, it loads each enhanced class.
+MyContext will always be loaded first than the Person class, in this case at the persistence context method “transactional” call. At context load, it is used a class called [EntityEnhancer](https://github.com/fwbrasil/activate/blob/master/activate-core/src/main/scala/net/fwbrasil/activate/entity/EntityEnhancer.scala) that scan the classpath using the [Reflections](http://code.google.com/p/reflections/) framework looking for all entity classes. After the scan, it enhance each entity class. After enhance, it loads each enhanced class.
 
 The Person class should be loaded when its constructor is called (new Person(“John”)), but at that point the class is already loaded by the EntityEnhancer with its variables enhanced as transactional units.
 
@@ -64,13 +64,13 @@ An example on how Activate deals with two concurrent bank transactions using tra
 
 
 ## TRANSACTIONAL CONTEXT ##
-The transaction methods and control structures are provided by the RadonSTM transactional context. It is the basis for the ActivateContext and has two important structures:
+The transaction methods and control structures are provided by the RadonSTM transactional context. It is the basis for the [ActivateContext](https://github.com/fwbrasil/activate/blob/master/activate-core/src/main/scala/net/fwbrasil/activate/ActivateContext.scala) and has two important structures:
 
-TransactionClock
+[TransactionClock](https://github.com/fwbrasil/radon-stm/blob/master/src/main/scala/net/fwbrasil/radon/transaction/time/TransactionClock.scala)
 A clock to determine transaction start and end timestamps. It is implemented using an AtomicLong, incremented each time that is used. It guarantees that transaction start/end timestamps are unique.
 
-TransactionManager
-The transaction manager has a ExclusiveThreadLocal that determines the current transaction. The thread local is filled each time that a transaction is activated in a transaction propagation triggered by a transactional block. The ExclusiveThreadLocal guarantees that the transaction is active in only one thread per time.
+[TransactionManager](https://github.com/fwbrasil/radon-stm/blob/master/src/main/scala/net/fwbrasil/radon/transaction/TransactionManager.scala)
+The transaction manager has a [ExclusiveThreadLocal](https://github.com/fwbrasil/radon-stm/blob/master/src/main/scala/net/fwbrasil/radon/util/ExclusiveThreadLocal.scala) that determines the current transaction. The thread local is filled each time that a transaction is activated in a transaction [propagation](https://github.com/fwbrasil/radon-stm/blob/master/src/main/scala/net/fwbrasil/radon/transaction/Propagation.scala) triggered by a transactional block. The ExclusiveThreadLocal guarantees that the transaction is active in only one thread per time.
 
 
 ## THE COMMIT TIME ##
@@ -102,7 +102,7 @@ Only at commit time there is a database transaction, if it is supported.
 ## EFFICIENT MEMORY USAGE ##
 A key point to a durable STM is to guarantee that exists only one transactional unit representing one data in the database, like the name of a Person. If there are more than one transactional unit representing the same data, the STM concurrency control properties are no longer valid.
 
-Activate implements an in-memory repository called LiveCache. It assures that there is only one instance of an entity loaded in the memory. The approach to achieve this behavior is to use soft references to all loaded entities from the database.
+Activate implements an in-memory repository called [LiveCache](https://github.com/fwbrasil/activate/blob/master/activate-core/src/main/scala/net/fwbrasil/activate/cache/live/LiveCache.scala). It assures that there is only one instance of an entity loaded in the memory. The approach to achieve this behavior is to use soft references to all loaded entities from the database.
 
 For example, if two threads use the same entity, they will use the same object instance. All modifications will be isolated by transactions in a non-blocking way and the consistency will be assured at commit time. So, you do not have to worry about concurrency issues.
 
@@ -124,11 +124,11 @@ To use Activate in this scenario, there is the Optimistic Offline Locking mechan
 
 The in-memory STM conflict detection occurs at the entity instance **property** granularity. For offline locking the conflict detection is at entity **instance** granularity.
 
-This is a widely known pattern to deal with concurrency. Each entity has a “Long” value called “version”. Every time that a transaction uses an entity, at commit time the entity storage version is compared to the its in-memory version information. If the in-memory information is equal to the storage information, the transaction modifications are persisted and the version information is incremented. If the in-memory version diverges from the storage, the commit process is aborted, the entity is reloaded from the storage and the transaction is retried if it possible.
+This is a [widely known](http://martinfowler.com/eaaCatalog/optimisticOfflineLock.html) pattern to deal with concurrency. Each entity has a “Long” value called “version”. Every time that a transaction uses an entity, at commit time the entity storage version is compared to the its in-memory version information. If the in-memory information is equal to the storage information, the transaction modifications are persisted and the version information is incremented. If the in-memory version diverges from the storage, the commit process is aborted, the entity is reloaded from the storage and the transaction is retried if it possible.
 
 By default, the version information is used only for entity modifications. To activate the same mechanism for entities reads, it is necessary to set the “activate.offlineLocking.validateReads” property.
 
-Please refer to the Multiple VMs documentation to learn how to configure the offline locking.
+Please refer to the [Multiple VMs](http://activate-framework.org/documentation/multiple-vms/) documentation to learn how to configure the offline locking.
 
 
 ## POLYGLOT PERSISTENCE ##
@@ -146,7 +146,7 @@ Storages receive the two-phase commit instructions in this order:
 4. Schemaless storages
 5. Other storages
 
-See the polyglot context documentation to usage instructions.
+See the [polyglot context](http://activate-framework.org/documentation/persistence-context/#polyglot_context) documentation to usage instructions.
 
 
 ## STORAGES ##
