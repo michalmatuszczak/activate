@@ -18,7 +18,7 @@ All entity creation, modification, read or query must be executed inside a trans
 
 ## [Validation](/docs/validation.md)
 
-Activate provides a Design by Contract (DbC) mechanism to achieve validation.
+Activate provides a [Design by Contract (DbC)](http://en.wikipedia.org/wiki/Design_by_contract) mechanism to achieve validation.
 
 ## [Query](/docs/query.md)
 
@@ -38,15 +38,15 @@ Activate supports mass update/delete statements.
 
 ## [Play framework](/docs/play framework.md)
 
-The “activate-play” component has some classes to facilitate the Activate usage with the Play Framework 2.2.
+The “**activate-play**” component has some classes to facilitate the Activate usage with the [Play Framework](http://www.playframework.com/) 2.2.
 
 ## [Lift framework](/docs/lift framework.md)
 
-The “activate-lift” module has the EntityForm that provides a easy way to handle lift entity forms.
+The “**activate-lift**” module has the EntityForm that provides a easy way to handle lift entity forms.
 
 ## [Spray Json](/docs/spray json.md)
 
-The spray-json integration is a easy way to manipulate entities from/to json.
+The [spray-json](https://github.com/spray/spray-json) integration is a easy way to manipulate entities from/to json.
 
 ## [Architecture](/docs/architecture.md)
 
