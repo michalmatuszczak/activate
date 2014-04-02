@@ -99,7 +99,7 @@ It’s possible to define validation options globally, by transaction, by thread
 
 By default, Activate has onCreate and onWrite global options.
 
-To define custom options for an entity instance, override entity “validationOptions” method:
+To define custom options for an entity instance, override entity “**validationOptions**” method:
 
 ``` scala
 override protected def validationOptions =

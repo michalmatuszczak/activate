@@ -239,7 +239,7 @@ object asyncPostgreSQLContext extends ActivateContext {
 }
 ```
 
-All storages implements a method called “directAccess” which provides direct access to the underlying database. Use this method carefully, if you modify the database content, the entities in memory could stay in an inconsistent state.
+All storages implements a method called “**directAccess**” which provides direct access to the underlying database. Use this method carefully, if you modify the database content, the entities in memory could stay in an inconsistent state.
 
 ## System properties
 

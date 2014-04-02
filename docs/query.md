@@ -297,7 +297,7 @@ val aFuture: Future[AsyncPaginationNavigator[String]] =
             where(entity.attribute like "A*") select (entity) orderBy (entity.attribute)
     }.navigator(100)
 ```
-Methods and values of AsyncPaginationNavigator:
+Methods and values of **AsyncPaginationNavigator**:
 
 - **val numberOfResults: Int**
 
@@ -333,7 +333,7 @@ Methods and values of AsyncPaginationNavigator:
 
 
 ## SLICK QUERIES ##
-To use slick lifted embedding queries, add the “activate-slick” module to the project dependencies.
+To use slick lifted embedding queries, add the “**activate-slick**” module to the project dependencies.
 
 The slick operations are provided by extending the persistence context from the SlickQueryContext:
 
@@ -353,7 +353,7 @@ Activate can avoid the necessity to declare the slick Table objects, but for eac
 
 The “execute” call integrates with the persistence context storage to perform the query and return the results.
 
-Refer to the slick documentation to more information on how to construct slick lifted embedding queries.
+Refer to the [slick](http://slick.typesafe.com/) documentation to more information on how to construct slick lifted embedding queries.
 
 Another more complex query:
 
