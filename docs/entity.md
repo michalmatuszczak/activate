@@ -69,7 +69,7 @@ The entity trait adds the following methods and values:
 	
 	Returns the original value of the attribute before the transaction start.
 
-The entity trait also overrides the toString method, generating a string representation based on the entity properties.
+The entity trait also overrides the **toString** method, generating a string representation based on the entity properties.
 
 
 ## ATTRIBUTES TYPES ##
