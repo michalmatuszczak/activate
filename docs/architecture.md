@@ -13,7 +13,7 @@ The optimistic approach does not lock resources during transaction execution. At
 ## TRANSACTIONAL UNIT ##
 Lets take as an example a bank account entity:
 
-![account-entity-1](http://activate-framework.org/wp-content/uploads/2012/05/account-entity-1.png account-entity-1)
+![account-entity-1](/docs/account-entity-1.jpg account-entity-1)
 
 As it is possible to observe, the balance variable has two parts: the identity (it is a balance) and a value (the balance value at certain time). Activate uses this two parts to create a indirection that permits each entity variable to be a STM transactional unit.
 
