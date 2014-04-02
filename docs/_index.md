@@ -4,11 +4,11 @@
 
 Activate is a framework to persist objects in Scala.
 
-## [Persistence Context](/docs/migration.md)
+## [Persistence Context](/docs/persistence-context.md)
 
 To use Activate, first you have to define a Persistence Context.
 
-## [Entity](/docs/migration.md)
+## [Entity](/docs/entity.md)
 
 To define a persistent entity you just have to extend the Entity trait.
 
@@ -16,11 +16,11 @@ To define a persistent entity you just have to extend the Entity trait.
 
 All entity creation, modification, read or query must be executed inside a transaction, otherwise a RequiredTransactionException will be thrown.
 
-## [Validation](/docs/migration.md)
+## [Validation](/docs/validation.md)
 
 Activate provides a Design by Contract (DbC) mechanism to achieve validation.
 
-## [Query](/docs/migration.md)
+## [Query](/docs/query.md)
 
 Activate queries are consistent, even with entities created in the current transaction, so a new entity can be returned in a query.
 
@@ -28,26 +28,26 @@ Activate queries are consistent, even with entities created in the current trans
 
 Migration is the storage schema evolution mechanism provided by Activate.
 
-## [Multiple VMs](/docs/migration.md)
+## [Multiple VMs](/docs/multiple vms.md)
 
 Activate uses memory efficiently by maintaining soft references for the entities that are loaded from the storage.
 
-## [Mass statement](/docs/migration.md)
+## [Mass statement](/docs/mass statement.md)
 
 Activate supports mass update/delete statements.
 
-## [Play framework](/docs/migration.md)
+## [Play framework](/docs/play framework.md)
 
 The “activate-play” component has some classes to facilitate the Activate usage with the Play Framework 2.2.
 
-## [Lift framework](/docs/migration.md)
+## [Lift framework](/docs/lift framework.md)
 
 The “activate-lift” module has the EntityForm that provides a easy way to handle lift entity forms.
 
-## [Spray Json](/docs/migration.md)
+## [Spray Json](/docs/spray json.md)
 
 The spray-json integration is a easy way to manipulate entities from/to json.
 
-## [Architecture](/docs/migration.md)
+## [Architecture](/docs/architecture.md)
 
 Activate is a Software Transactional Memory with efficient memory usage and pluggable persistence.
