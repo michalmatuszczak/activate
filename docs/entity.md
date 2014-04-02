@@ -154,10 +154,15 @@ object myContext extends ActivateContext {
 ```
 Provided serializer implementations:
 
+
 net.fwbrasil.activate.serialization.xmlSerializer
+
 net.fwbrasil.activate.serialization.jsonSerializer
+
 net.fwbrasil.activate.serialization.javaSerializer
+
 net.fwbrasil.activate.serialization.kryoSerializer
+
 
 Additionally, is possible to define custom serializers by entity attribute:
 
@@ -204,7 +209,7 @@ It is possible to listen events of the entity lifecycle by overriding these meth
 ``` scala
 protected def beforeConstruct: Unit
 ```
-Called before the entity constructor body execution. IMPORTANT: This event should be overridden in very special cases, since the instance is in an inconsistent state.
+Called before the entity constructor body execution. **IMPORTANT**: This event should be overridden in very special cases, since the instance is in an inconsistent state.
 
 ``` scala
 protected def afterConstruct: Unit
