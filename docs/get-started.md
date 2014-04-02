@@ -4,7 +4,7 @@ Activate is a framework to persist objects in Scala. It is a [STM](http://en.wik
 
 ## Sample code
 
-```
+``` scala
 package com.example.foo
 
 import net.fwbrasil.activate.ActivateContext
@@ -104,10 +104,11 @@ Modify project/ActivateExampleBuild.scala and com/example/foo/ActivateExampleCon
 
 Call sbt inside the activate-example folder and create the eclipse project files:
 
-```
-$ sbt
-> eclipse
-```
+
+> $ sbt
+> 
+> \> eclipse
+
 
 Now you can import into eclipse. It is necessary that the scala plugin is installed http://scala-ide.org/.
 
