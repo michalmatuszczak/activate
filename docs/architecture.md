@@ -13,11 +13,11 @@ The optimistic approach does not lock resources during transaction execution. At
 ## TRANSACTIONAL UNIT ##
 Lets take as an example a bank account entity:
 
-![account-entity-1](/docs/account-entity-1.JPG)
+![account-entity-1](/docs/account-entity-1.png)
 
 As it is possible to observe, the balance variable has two parts: the identity (it is a balance) and a value (the balance value at certain time). Activate uses this two parts to create a indirection that permits each entity variable to be a STM transactional unit.
 
-![account-entity-2](http://activate-framework.org/wp-content/uploads/2012/05/account-entity-2.png account-entity-2)
+![account-entity-2](/docs/account-entity-2.png)
 
 All the concurrency control is done in the identity. In the RadonSTM this transactional unit is called “Ref“. Activate specializes this type with the class “Var“.
 
