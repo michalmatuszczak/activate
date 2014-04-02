@@ -17,7 +17,7 @@ Lets take as an example a bank account entity:
 
 As it is possible to observe, the balance variable has two parts: the identity (it is a balance) and a value (the balance value at certain time). Activate uses this two parts to create a indirection that permits each entity variable to be a STM transactional unit.
 
-
+![account-entity-2](http://activate-framework.org/wp-content/uploads/2012/05/account-entity-2.png account-entity-2)
 
 All the concurrency control is done in the identity. In the RadonSTM this transactional unit is called “Ref“. Activate specializes this type with the class “Var“.
 
@@ -60,7 +60,7 @@ The Activate enhance is very smooth. It does not difficult debug and supports co
 ## EXAMPLE SCENARIO ##
 An example on how Activate deals with two concurrent bank transactions using transactional units as entities fields. Observe that the transaction execution and retries are non-bloking.
 
-
+![slide-1-638.jpg](http://image.slidesharecdn.com/activarestm-121119162915-phpapp02/95/slide-1-638.jpg?cb=1353364238 slide-1-638.jpg)
 
 
 ## TRANSACTIONAL CONTEXT ##
