@@ -71,7 +71,7 @@ computerForm.bindFromRequest.fold(
     })
 ```
 ## CREATEENTITY ##
-To create an entity instance with the form values use the “createEntity” method:
+To create an entity instance with the form values use the “**createEntity**” method:
 
 ``` scala
 computerForm.bindFromRequest.fold(
