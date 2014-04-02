@@ -4,4 +4,5 @@ The “**activate-lift**” module has the EntityForm that provides a easy way t
 The default [EntityForm](http://activate-framework.org/documentation/entity/#entity_map) is immutable and there is the MutableEntityForm as an alternative:
 
 net.fwbrasil.activate.lift.EntityForm
+
 net.fwbrasil.activate.lift.MutableEntityForm
