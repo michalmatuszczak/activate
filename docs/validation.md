@@ -142,4 +142,4 @@ Methods of **net.fwbrasil.activate.entity.EntityValidation** object:
 
 	Methods to define thread options (default is no options – None).
 
-You can also validate an entity at any moment by calling the “validate” method or the invariant methods.
+You can also validate an entity at any moment by calling the “**validate**” method or the invariant methods.
